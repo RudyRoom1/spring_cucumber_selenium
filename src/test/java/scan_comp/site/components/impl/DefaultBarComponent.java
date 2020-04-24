@@ -2,11 +2,13 @@ package scan_comp.site.components.impl;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import scan_comp.site.components.HomeComponent;
 import scan_comp.site.components.AbstractComponent;
+import scan_comp.site.components.HomeComponent;
 
 @Component
+@Scope("cucumber-glue")
 public class DefaultBarComponent extends AbstractComponent implements
     HomeComponent {
 
@@ -32,14 +34,19 @@ public class DefaultBarComponent extends AbstractComponent implements
   }
 
   @Override
-  public String getName() {
-    return null;
-  }
-
-  @Override
-  public void SearchFor(String query) {
+  public void searchFor(String query) {
     this.waitForLoad();
     searchInput.sendKeys(query);
     searchInput.submit();
+  }
+
+  public void goToLoginPage(){
+    this.waitForLoad();
+    singInButton.click();
+  }
+
+  @Override
+  public WebElement getLoadableElement() {
+    return searchInput;
   }
 }

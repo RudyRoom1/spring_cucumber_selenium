@@ -1,12 +1,12 @@
-package spring;
+package scan_comp.init;
 
-import net.bytebuddy.description.annotation.AnnotationDescription.Loadable;
 import org.openqa.selenium.support.PageFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 import scan_comp.driver.DriverProvider;
+import scan_comp.site.pages.Loadable;
 
 @Component
 public class PageInitializingBPP implements BeanPostProcessor {

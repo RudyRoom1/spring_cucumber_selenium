@@ -2,7 +2,7 @@ package scan_comp.site.components;
 
 public interface HomeComponent{
 
-  String getName();
+//  String getName();
 
-  void SearchFor(String query);
+  void searchFor(String query);
 }

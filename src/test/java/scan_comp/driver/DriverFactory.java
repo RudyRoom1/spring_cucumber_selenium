@@ -1,8 +1,5 @@
 package scan_comp.driver;
 
-import static org.openqa.selenium.remote.BrowserType.CHROME;
-import static org.openqa.selenium.remote.BrowserType.FIREFOX;
-
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DriverFactory {
+
 
   public static WebDriver getDriver(final DesiredCapabilities capabilities) {
     switch (capabilities.getBrowserName()) {
@@ -27,5 +25,6 @@ public class DriverFactory {
         throw new IllegalArgumentException("Invalid browser name: " + capabilities);
     }
   }
+
 }
 

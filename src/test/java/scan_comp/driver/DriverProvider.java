@@ -12,21 +12,18 @@ public class DriverProvider {
 
   @Value("${browser}")
   private String browserName;
-  
+
   private ThreadLocal<WebDriver> driverInstance = new ThreadLocal<>();
 
+  @Bean(destroyMethod = "quit")
+  @Scope("singleton")
   public WebDriver getInstance() {
     if (driverInstance.get() == null) {
       DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
       desiredCapabilities.setBrowserName(browserName);
       driverInstance.set(DriverFactory.getDriver(desiredCapabilities));
+      driverInstance.get().manage().window().maximize();
     }
-    return driverInstance.get();
-  }
-
-  @Bean(destroyMethod = "quit")
-  @Scope("singleton")
-  public WebDriver webDriver() {
     return driverInstance.get();
   }
 
