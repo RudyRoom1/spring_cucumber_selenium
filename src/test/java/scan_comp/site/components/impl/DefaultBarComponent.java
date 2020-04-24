@@ -1,5 +1,7 @@
 package scan_comp.site.components.impl;
 
+import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.context.annotation.Scope;
@@ -8,7 +10,7 @@ import scan_comp.site.components.AbstractComponent;
 import scan_comp.site.components.HomeComponent;
 
 @Component
-@Scope("cucumber-glue")
+@Scope(SCOPE_CUCUMBER_GLUE)
 public class DefaultBarComponent extends AbstractComponent implements
     HomeComponent {
 

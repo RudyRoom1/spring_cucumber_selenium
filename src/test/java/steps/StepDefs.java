@@ -36,7 +36,6 @@ public class StepDefs {
   @Given("^Open GitHub home page$")
   public void iOpenGitHubSearchPage() {
     homePage.openPage();
-
   }
 
   @Then("^Type '(.*)' to the search field$")
@@ -57,5 +56,10 @@ public class StepDefs {
   @And("^check login is successful$")
   public void checkLoginIsSuccessful() {
     gitHubLoginPage.checkProfileName();
+  }
+
+  @And("close")
+  public void close() {
+    homePage.getDriverProvider().getInstance().quit();
   }
 }
